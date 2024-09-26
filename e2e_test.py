@@ -76,4 +76,4 @@ def run_client(num1, num2, operator):
 
 def test_multiplication_operation():
     result = run_client(6, 7, '*')
-    assert "Result: 42" in result
+    assert "Result: 42.0" in result
