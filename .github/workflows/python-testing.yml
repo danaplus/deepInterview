@@ -25,3 +25,4 @@ jobs:
       - name: Run tests
         run: |
           pytest e2e_test.py
+          cat server.log && cat client.log
