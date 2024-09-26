@@ -15,7 +15,7 @@ class Client:
             s.connect(self.server_address)
             s.sendall(data.encode('utf-8'))
             result = s.recv(1024).decode('utf-8')
-            logging.info("---- Function send_data_to_server Exit ----")
+            logging.info(f"---- Function send_data_to_server Exit with the result {result} ----")
             return result
 
     def get_user_input(self):
@@ -24,7 +24,7 @@ class Client:
         num2 = input("Enter the second number: ")
         operation = input("Enter the operation (+, -, *, /): ")
         data = f"{num1},{num2},{operation}"
-        logging.info("---- Function get_user_input Exit ----")
+        logging.info(f"---- Function get_user_input Exit with data: {data} ----")
         return data
 
     def run(self):
@@ -32,7 +32,7 @@ class Client:
         data = self.get_user_input()
         result = self.send_data_to_server(data)
         print(f"Result: {result}")
-        logging.info("---- Function run Exit ----")
+        logging.info(f"---- Function run Exit with result {result} ----")
 
 
 if __name__ == "__main__":

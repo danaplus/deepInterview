@@ -45,23 +45,23 @@ class Server:
             result = operations[operation].execute(num1, num2)
         else:
             result = "Invalid operation"
-        logging.info("---- Function perform_operation Exit ----")
+        logging.info(f"---- Function perform_operation Exit with Result: {result} ----")
         return result
 
     def handle_client(self, connection):
-        logging.info("---- Function handle_client Enter ----")
         data = connection.recv(1024).decode('utf-8')
+        logging.info(f"---- Function handle_client Enter with the data: {data} ----")
         num1, num2, operation = data.split(',')
         result = self.perform_operation(float(num1), float(num2), operation)
         connection.sendall(str(result).encode('utf-8'))
-        logging.info("---- Function handle_client Exit ----")
+        logging.info(f"---- Function handle_client Exit with the result: {result} ----")
 
     def run(self):
         logging.info("---- Function run Enter ----")
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.bind(self.server_address)
             s.listen()
-            print("Server is listening...")
+            print("Server is listening, can you sing?...")
             while True:
                 connection, client_address = s.accept()
                 with connection:
