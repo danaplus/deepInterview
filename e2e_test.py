@@ -40,32 +40,32 @@ def test_subtraction_operation():
     data = "10,4,-"
     expected_result = "6"
     result = send_request_to_server(data)
-    assert result == expected_result
+    assert float(result) == expected_result
 
 
 def test_multiplication_operation():
     data = "6,7,*"
     expected_result = "42"
     result = send_request_to_server(data)
-    assert result == expected_result
+    assert float(result) == expected_result
 
 
 def test_division_operation():
     data = "20,5,/"
     expected_result = "4.0"
     result = send_request_to_server(data)
-    assert result == expected_result
+    assert float(result) == expected_result
 
 
 def test_division_by_zero():
     data = "5,0,/"
     expected_result = "Error: Division by zero"
     result = send_request_to_server(data)
-    assert result == expected_result
+    assert float(result) == expected_result
 
 
 def test_invalid_operation():
     data = "5,3,^"
     expected_result = "Invalid operation"
     result = send_request_to_server(data)
-    assert result == expected_result
+    assert float(result) == expected_result
